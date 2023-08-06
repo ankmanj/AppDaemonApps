@@ -1,0 +1,35 @@
+at_home:
+  module: at_home_trigger
+  class: AtHomeTrigger
+
+evening_retro_lights:
+  module: retro_lights
+  class: RetroLightOn
+
+bedroom_lights:
+  module: bedroom_light
+  class: BedroomLight
+
+music:
+  module: music
+  class: Music
+
+music_snapshot:
+  module: music_snapshot
+  class: MusicSnapshot
+
+notify_ankith_sushi:
+  module: notify_ankith_sushi
+  class: NotifyAnkithSushi
+
+kitchen_lights:
+  module: kitchen_light
+  class: KitchenLight
+
+notify_water_plants:
+  module: plant_water_notification
+  class: PlantWaterNotifier
+
+volume_control:
+  module: reduce_volume
+  class: VolumeControl

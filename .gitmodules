@@ -1,0 +1,3 @@
+[submodule "adddaemon-machine"]
+	path = adddaemon-machine
+	url = https://github.com/PeWu/appdaemon-machine
