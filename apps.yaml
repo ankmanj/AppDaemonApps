@@ -26,10 +26,32 @@ kitchen_lights:
   module: kitchen_light
   class: KitchenLight
 
-notify_water_plants:
-  module: plant_water_notification
-  class: PlantWaterNotifier
+#notify_water_plants:
+#module: plant_water_notification
+#class: PlantWaterNotifier
 
 volume_control:
   module: reduce_volume
   class: VolumeControl
+
+work_room_light:
+  module: work_room_lights
+  class: WorkRoomLights
+
+tannenbaum_light:
+  module: tannenbaum
+  class: TannenbaumLights
+
+iphone_actions:
+  module: iphone_actions
+  class: IphoneActions
+
+entrance_light:
+  module: entrance_light
+  class: EntranceLight
+
+Iphone_presence:
+  module: Iphone_presence
+  class: FritzboxIphoneTracker
+  iphone_barney_mac: !secret IPhoneBarney
+  iphone_sushi_mac: !secret IPhoneSushi

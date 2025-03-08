@@ -12,7 +12,7 @@ playlist_kannada = "https://open.spotify.com/playlist/4nRDM69vmrfaqCKqi1aQmc"
 playlist_rainy_day = "https://open.spotify.com/playlist/37i9dQZF1DXbvABJXBIyiY"
 playlist_chil_vibes = "https://open.spotify.com/playlist/37i9dQZF1DX889U0CL85jj"
 playlist_sunny_day = "https://open.spotify.com/playlist/37i9dQZF1DX1BzILRveYHb"
-playlist_cloudy_day = "https://open.spotify.com/playlist/37i9dQZF1DX6lttj7ulLd6"
+playlist_cloudy_day = "https://open.spotify.com/playlist/5CMvAWTlDPdZnkleiTHyyo"
 playlist_winter = "https://open.spotify.com/playlist/37i9dQZF1DX4je779Ww5L2"
 playlist_snow = "https://open.spotify.com/playlist/37i9dQZF1DZ06evO3bXBF7"
 playlist_grand_sounds = "https://open.spotify.com/playlist/4o7ysYl3CaIPlDt4UKclRU"
@@ -125,7 +125,7 @@ class Music(hass.Hass):
                 
             #Default case 
             case _:
-                return playlist_evening_chill
+                return playlist_grand_sounds
                 
         
 	    
