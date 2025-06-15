@@ -10,7 +10,7 @@ class RetroLightOn(hass.Hass):
         handle = self.run_daily(self.TurnOffLight, runtime)
 
         #Turn on light at 04.30am morning and turn off at 07.15am 
-        runtime = datetime.time(4, 30, 00)
+        runtime = datetime.time(4, 20, 00)
         handle = self.run_daily(self.LivingRoomLampOn, runtime)
 
         runtime = datetime.time(7, 15, 00)

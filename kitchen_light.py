@@ -9,21 +9,23 @@ class KitchenLight(hass.Hass):
         
     def light_on(self,  entity, attribute, old, new, kwargs):
         if self.trigger_event():
-            str = f"before Turning on Kitchen lights"
-            self.call_service("switch/turn_on", entity_id = "switch.kitchenledstrip")
+            str = f"before Turning on Kitchen lights"            
+            self.turn_on('light.kitchen')
             str = f"Turning on Kitchen lights"
             self.log(str, ascii_encode=False)
         
     def light_off(self,  entity, attribute, old, new, kwargs):        
-        self.call_service("switch/turn_off", entity_id = "switch.kitchenledstrip")
+        self.turn_off('light.kitchen')
         str = f"Turning off Kitchen lights"
         self.log(str, ascii_encode=False)
+
+        
         
     def trigger_event(self):
         #Trigger only when home and after sunset
         self.kitchen_light_sensor = self.get_entity("sensor.kitchen_motion_sensor")
         #10 is based on light measurements from 24.09.24 to 05.10.24
-        if float(self.kitchen_light_sensor.get_state()) < 10:        
+        if float(self.kitchen_light_sensor.get_state()) < 7:        
             return True
         else:
             return False

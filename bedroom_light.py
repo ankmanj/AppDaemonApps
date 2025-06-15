@@ -4,17 +4,11 @@ from at_home_trigger import at_home_event
 
 class BedroomLight(hass.Hass):
     def initialize(self):
-        self.my_enitity = self.get_entity("binary_sensor.bedroom_motion_sensor")
-        self.sun_entity = self.get_entity("sun.sun")
-        self.bedroom_light_sensor = self.get_entity("sensor.bedroom_motion_sensor")
-        self.my_enitity.listen_state(self.bedroom_motion_light_on, new = "on")
-        self.my_enitity.listen_state(self.bedroom_light_off, new = "off")
+        self.bedroom_lamp = "light.bedroom"        
         
-        runtime_on = datetime.time(23, 00, 00)
-        handle = self.run_daily(self.night_lamp_on, runtime_on)
-        
-        runtime_off = datetime.time(5, 00, 00)
-        handle = self.run_daily(self.night_lamp_off, runtime_off)
+        self.run_at_sunset(self.night_lamp_on)
+        self.run_at_sunrise(self.night_lamp_off)
+
         
     def bedroom_motion_light_on(self,  entity, attribute, old, new, kwargs):
         if self.trigger_event():
@@ -26,7 +20,7 @@ class BedroomLight(hass.Hass):
         
     def night_lamp_on(self, kwargs):
         self.log("Turning night lamp on", ascii_encode=False)
-        self.turn_on()
+        self.turn_on(in_brightness=100)
         
     def night_lamp_off(self, kwargs):
         self.log("Turning night lamp off", ascii_encode=False)
@@ -34,13 +28,13 @@ class BedroomLight(hass.Hass):
         
         
     def turn_on(self, in_brightness = 3):
-        self.my_enitity = self.get_entity("light.bedroom_lamp")
+        self.my_enitity = self.get_entity(self.bedroom_lamp)
         self.my_enitity.call_service("turn_on", brightness = in_brightness)
         str = f"Turning on bedroom lights"
         self.log(str, ascii_encode=False)
         
     def turn_off(self):
-        self.my_enitity = self.get_entity("light.bedroom_lamp")
+        self.my_enitity = self.get_entity(self.bedroom_lamp)
         self.my_enitity.call_service("turn_off")
         str = f"Turning off bedroom lights"
         self.log(str, ascii_encode=False)

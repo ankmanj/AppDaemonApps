@@ -26,10 +26,6 @@ kitchen_lights:
   module: kitchen_light
   class: KitchenLight
 
-#notify_water_plants:
-#module: plant_water_notification
-#class: PlantWaterNotifier
-
 volume_control:
   module: reduce_volume
   class: VolumeControl
@@ -55,3 +51,6 @@ Iphone_presence:
   class: FritzboxIphoneTracker
   iphone_barney_mac: !secret IPhoneBarney
   iphone_sushi_mac: !secret IPhoneSushi
+#abstellraum_light:
+#module: abstellraum_light
+#class: AbstellRaumLight
