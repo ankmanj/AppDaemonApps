@@ -51,6 +51,7 @@ Iphone_presence:
   class: FritzboxIphoneTracker
   iphone_barney_mac: !secret IPhoneBarney
   iphone_sushi_mac: !secret IPhoneSushi
-#abstellraum_light:
-#module: abstellraum_light
-#class: AbstellRaumLight
+
+abstellraum_light:
+  module: abstellraum_light
+  class: AbstellRaumLight

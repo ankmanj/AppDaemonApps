@@ -39,7 +39,8 @@ class Music(hass.Hass):
         handle = self.run_daily(self.WeekendMusicOn, runtime)
     
     def TurnOnEveningMusiccb(self, kwargs):
-        listUrl = self.getplaylist()
+        #listUrl = self.getplaylist()
+        listUrl = playlist_grand_sounds
         self.log("Weekday evening playlist callback")
         self.log("Current chosen playlist %s", listUrl)
         if self.trigger_event():

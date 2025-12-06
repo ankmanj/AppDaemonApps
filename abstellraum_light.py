@@ -7,27 +7,27 @@ class AbstellRaumLight(hass.Hass):
         self.my_enitity.listen_state(self.motion_light_on, new = "on")
         self.my_enitity.listen_state(self.motion_light_off, new = "off")
 
-        runtime = datetime.time(22, 00, 00)
-        handle = self.run_daily(self.TurnOnLight, runtime)
+        # runtime = datetime.time(22, 00, 00)
+        # handle = self.run_daily(self.TurnOnLight, runtime)
 
-        runtime = datetime.time(4, 15, 00)
-        handle = self.run_daily(self.TurnOffLight, runtime)
+        # runtime = datetime.time(4, 15, 00)
+        # handle = self.run_daily(self.TurnOffLight, runtime)
 
     def motion_light_on(self,  entity, attribute, old, new, kwargs):
-        if self.now_is_between("04:15:00", "22:00:00"):
-            self.TurnOnLight(kwargs)
+        #if self.now_is_between("04:15:00", "22:00:00"):
+        self.TurnOnLight(kwargs)
         
     def motion_light_off(self,  entity, attribute, old, new, kwargs):
-        if self.now_is_between("04:15:00", "22:00:00"):
-            self.TurnOffLight(kwargs)
+        #if self.now_is_between("04:15:00", "22:00:00"):
+        self.TurnOffLight(kwargs)
 
     def TurnOnLight(self, kwargs):      
         str = f"before Turning on  lights"
-        self.turn_on('light.abstellraumlight', brightness = 35,  transition = 3)                       
+        self.turn_on('light.abstellraumlight', brightness = 35,  transition = 0)                       
         str = f"Turning on lights"
         self.log(str, ascii_encode=False)
         
     def TurnOffLight(self, kwargs):
-        self.turn_off('light.abstellraumlight', transition = 3)        
+        self.turn_off('light.abstellraumlight', transition = 7)        
         str = f"Turning off  lights"
         self.log(str, ascii_encode=False)
